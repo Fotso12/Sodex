@@ -18,17 +18,17 @@ jobs:
           node-version: 22
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Installation des dépendances
         run: npm ci
 
-      - name: Build
+      - name: Build du projet
         run: npm run build
 
-      - name: Install Vercel CLI
+      - name: Installation de Vercel CLI
         run: npm install -g vercel@latest
 
-      - name: Deploy to Vercel
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Déploiement sur Vercel
+        run: vercel --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
