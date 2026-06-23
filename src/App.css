@@ -1,0 +1,25 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  margin-top: var(--nav-height);
+}
+
+.main-home {
+  margin-top: 0;
+}
+
+.main-page {
+  padding-top: var(--nav-height);
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: var(--nav-height);
+  }
+}

@@ -1,0 +1,201 @@
+.sectors-page {
+  padding-bottom: 80px;
+}
+
+.sectors-hero {
+  background: var(--primary);
+  padding: 100px 0 60px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectors-hero .section-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--secondary-light);
+}
+
+.sectors-page-title {
+  font-size: clamp(32px, 5vw, 48px);
+  color: #ffffff;
+  margin: 16px 0;
+}
+
+.sectors-page-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.sectors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sector-card-large {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.sector-card-large:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.sector-row-reverse {
+  direction: rtl;
+}
+
+.sector-row-reverse .sector-card-info {
+  direction: ltr;
+}
+
+.sector-card-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.sector-visual-animation {
+  z-index: 2;
+}
+
+.sector-visual-icon {
+  font-size: 72px;
+  color: #fff;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+}
+
+.sector-visual-animation.flame .sector-visual-icon {
+  animation: float 3s ease infinite;
+}
+
+.sector-visual-animation.float .sector-visual-icon {
+  animation: float 4s ease infinite;
+}
+
+.sector-visual-animation.drill .sector-visual-icon {
+  animation: pulse 2s ease infinite;
+}
+
+.sector-visual-animation.rise .sector-visual-icon {
+  animation: float 3.5s ease infinite;
+}
+
+.sector-visual-animation.pulse .sector-visual-icon {
+  animation: pulse 2s ease infinite;
+}
+
+.sector-visual-animation.spin .sector-visual-icon {
+  animation: spin 6s linear infinite;
+}
+
+.sector-visual-animation.rotate .sector-visual-icon {
+  animation: spin 10s linear infinite;
+}
+
+.sector-card-info {
+  padding: 40px;
+  direction: ltr;
+}
+
+.sector-card-name {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.sector-card-subtitle {
+  font-size: 16px;
+  color: var(--text-gray);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.sector-card-description {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.sector-card-missions-list h4 {
+  font-size: 15px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sector-card-missions-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.sector-card-missions-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.mission-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sector-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sector-detail-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 968px) {
+  .sector-card-large,
+  .sector-row-reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .sector-card-visual {
+    min-height: 200px;
+  }
+  .sector-visual-icon {
+    font-size: 52px;
+  }
+  .sector-card-info {
+    padding: 24px;
+  }
+}

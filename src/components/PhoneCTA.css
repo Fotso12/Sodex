@@ -1,0 +1,65 @@
+.phone-cta-section {
+  padding: 60px 0;
+  background: var(--primary);
+}
+
+.phone-cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.phone-cta-text h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  color: #ffffff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-cta-text p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.phone-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.phone-cta-btn:hover {
+  background: var(--secondary-light);
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.4);
+}
+
+.phone-icon {
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .phone-cta-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .phone-cta-text h2 {
+    justify-content: center;
+  }
+  .phone-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
