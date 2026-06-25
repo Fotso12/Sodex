@@ -1,12 +1,17 @@
-name: Déploiement Vercel
+name: Déploiement Sodex
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'sodex/**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sodex
 
     steps:
       - name: Checkout
@@ -17,6 +22,7 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
+          cache-dependency-path: sodex/package-lock.json
 
       - name: Installation des dépendances
         run: npm ci
