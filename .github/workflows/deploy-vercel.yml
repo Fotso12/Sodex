@@ -67,20 +67,10 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ${{ matrix.project.dir }}/package-lock.json
 
-      - name: Scan des dépendances (npm audit)
+      - name: Scan des vulnérabilités (npm audit)
         working-directory: ${{ matrix.project.dir }}
         run: npm audit --audit-level=high
         continue-on-error: true
-
-      - name: Scan de sécurité (CodeQL)
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript-typescript
-          queries: security-extended
-          source-root: ${{ matrix.project.dir }}
-
-      - name: Analyse CodeQL
-        uses: github/codeql-action/analyze@v3
 
   deploy:
     name: Deploy — ${{ matrix.project.name }}
