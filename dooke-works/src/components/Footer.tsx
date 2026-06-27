@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { company, navLinks } from '@/data/content';
 
 export default function Footer() {
+  const allLinks = navLinks.flatMap((l) => ('dropdown' in l ? [...l.dropdown] : [l]));
+
   return (
     <footer className="bg-dark text-white/80 pt-16 border-t border-white/10">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -14,9 +16,6 @@ export default function Footer() {
               </div>
               <span className="text-white font-extrabold tracking-widest text-lg">DOOKE WORKS</span>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
-              {company.slogan}
-            </p>
             <div className="flex flex-col gap-3">
               <div className="flex items-start gap-3 text-sm">
                 <i className="fa fa-map-marker text-primary mt-1 w-4 text-center"></i>
@@ -43,7 +42,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-base uppercase tracking-wider mb-6">Navigation</h4>
             <ul className="flex flex-col gap-3">
-              {navLinks.map((link) => (
+              {allLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-white/60 hover:text-primary hover:pl-1 transition-all text-sm block py-1">
                     {link.label}
@@ -71,11 +70,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="py-6 flex flex-col md:flex-row justify-between items-center text-white/50 text-sm gap-4">
+        <div className="py-6 flex flex-col items-center text-white/50 text-sm gap-4">
           <p>&copy; {new Date().getFullYear()} Dooke Works. Une division de Dooke Corporation.</p>
-          <p className="flex items-center gap-2">
-            <i className="fa fa-cogs"></i> Excellence technique et industrielle
-          </p>
         </div>
       </div>
     </footer>

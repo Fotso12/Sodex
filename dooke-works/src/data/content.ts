@@ -16,7 +16,16 @@ export const navLinks = [
   { label: 'Accueil', href: '/' },
   { label: 'Présentation', href: '/presentation' },
   { label: 'Le Groupe', href: '/groupe' },
-  { label: 'Nos réalisations', href: '/references' },
+  {
+    label: 'Nos activités',
+    dropdown: [
+      { label: 'Bâtiment & TP', href: '/projets/batiment' },
+      { label: 'Industrie', href: '/projets/industrie' },
+      { label: 'Télécommunications', href: '/projets/telecoms' },
+      { label: 'Mise en sécurité', href: '/projets/securite' },
+    ],
+  },
+  { label: 'Nos références', href: '/references' },
   { label: 'Galerie', href: '/galerie' },
   { label: 'Contact', href: '/contact' },
 ];

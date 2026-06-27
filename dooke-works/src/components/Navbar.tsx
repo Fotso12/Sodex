@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { company } from '@/data/content';
 
 const activityLinks = [
-  { label: "Bâtiments & TP", href: '/presentation' },
-  { label: 'Industries on/offshore', href: '/presentation' },
-  { label: 'Télécommunications', href: '/presentation' },
-  { label: 'Mise en sécurité', href: '/presentation' },
-  { label: 'Formations', href: '/presentation' },
+  { label: 'Bâtiment & TP', href: '/projets/batiment' },
+  { label: 'Industrie', href: '/projets/industrie' },
+  { label: 'Télécommunications', href: '/projets/telecoms' },
+  { label: 'Mise en sécurité', href: '/projets/securite' },
 ];
 
 export default function Navbar() {
@@ -55,6 +54,9 @@ export default function Navbar() {
             <Link href="/presentation" className="text-white/80 text-sm font-medium px-5 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors">
               Présentation
             </Link>
+            <Link href="/groupe" className="text-white/80 text-sm font-medium px-5 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors">
+              Le Groupe
+            </Link>
             <div className="relative"
               onMouseEnter={() => setDropdown(true)}
               onMouseLeave={() => setDropdown(false)}>
@@ -72,21 +74,9 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            <div className="relative"
-              onMouseEnter={() => {}}
-              onMouseLeave={() => {}}>
-              <button className="text-white/80 text-sm font-medium px-5 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors flex items-center gap-1.5">
-                Galeries <i className="fa fa-chevron-down text-[10px]"></i>
-              </button>
-              <div className="absolute top-full left-0 mt-1 bg-dark/95 backdrop-blur-sm border border-white/10 rounded-xl py-2 min-w-[180px] shadow-xl opacity-0 pointer-events-none">
-                <Link href="/galerie" className="block px-4 py-2.5 text-white/70 hover:text-primary hover:bg-white/5 transition text-sm">
-                  Photos
-                </Link>
-                <Link href="/galerie" className="block px-4 py-2.5 text-white/70 hover:text-primary hover:bg-white/5 transition text-sm">
-                  Vidéos
-                </Link>
-              </div>
-            </div>
+            <Link href="/galerie" className="text-white/80 text-sm font-medium px-5 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors">
+              Galerie
+            </Link>
             <Link href="/references" className="text-white/80 text-sm font-medium px-5 py-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors">
               Nos références
             </Link>
@@ -105,6 +95,7 @@ export default function Navbar() {
           <div className="lg:hidden bg-dark border-t border-white/5 px-4 pb-4">
             <Link href="/" className="block text-white/80 text-sm py-3 px-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors" onClick={() => setOpen(false)}>Accueil</Link>
             <Link href="/presentation" className="block text-white/80 text-sm py-3 px-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors" onClick={() => setOpen(false)}>Présentation</Link>
+            <Link href="/groupe" className="block text-white/80 text-sm py-3 px-3 rounded-lg hover:bg-white/5 hover:text-primary transition-colors" onClick={() => setOpen(false)}>Le Groupe</Link>
             <div className="text-white/50 text-xs uppercase tracking-wider px-3 py-2">Nos activités</div>
             {activityLinks.map((a) => (
               <Link key={a.label} href={a.href}

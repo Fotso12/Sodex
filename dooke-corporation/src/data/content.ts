@@ -19,8 +19,8 @@ export const navLinks = [
   {
     label: 'Nos activités',
     dropdown: [
-      { label: 'Dooke Works', href: 'http://dookeworks.com' },
-      { label: 'Dooke Consulting', href: 'http://dookeconsulting.com' },
+      { label: 'Dooke Works', href: 'https://dooke-works.vercel.app' },
+      { label: 'Dooke Consulting', href: 'https://dooke-consulting.vercel.app/' },
     ],
   },
   { label: 'Nos références', href: '/references' },
