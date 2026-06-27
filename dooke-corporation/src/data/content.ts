@@ -58,8 +58,10 @@ export const carouselSlides = [
 export const presentation = {
   title: 'Bienvenue à Dooke Corporation',
   paragraphs: [
-    'Dooke Corporation a été créée en 2015 pour répondre au besoin de professionnels multisectoriels dans un monde sans cesse en mouvement. Notre mission est de relever les défis des prochaines décennies en apportant des solutions plus sûres et innovantes.',
-    'Nous nous engageons à fournir des services de haute qualité, en respectant les normes les plus strictes de sécurité, d\'hygiène et de qualité. Notre équipe est composée de professionnels expérimentés et passionnés par leur métier.',
+    "DOOKE CORPORATION a été créée en 2015 d'une part pour répondre au besoin de professionnels multisectoriels dans un monde sans cesse en mouvement, et d'autre part pour être à la hauteur des défis des prochaines décennies, en apportant des solutions plus sûres, plus crédibles et surtout plus précises sur le continent qui abritera le quart de la population mondiale d'ici 2050.",
+    "En effet, la population africaine, qui compte actuellement 1,2 milliard d'habitants, doublera d'ici le milieu du siècle et atteindra 4,2 milliards d'ici 2100, selon l'Unicef. Cette croissance démographique entraînera une surpopulation encore plus forte, et d'ici la fin des années 2030 la plupart des Africains vivront dans des villes.",
+    "DOOKE CORPORATION s'inscrit dans cette vision futuriste d'un continent qui se déplace, et compte apporter sa pierre à la construction de l'Afrique. C'est aussi pour cette raison qu'elle s'est entourée des experts et des partenaires socio-économiques venant d'Europe, des États Unis d'Amérique et bien évidemment d'Afrique.",
+    'Nous sommes aujourd\'hui présents dans 3 pays :\n\n• En Côte d\'Ivoire pour l\'Afrique de l\'Ouest\n• Au Cameroun pour l\'Afrique centrale\n• En France pour l\'Europe centrale',
   ],
 };
 

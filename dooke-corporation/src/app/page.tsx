@@ -117,7 +117,7 @@ export default function Home() {
           ))}
           <div className="flex flex-wrap justify-center gap-3 mt-6">
             <a
-              href="http://dookeworks.com"
+              href="https://dooke-works.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-dark font-bold px-6 py-3 rounded-xl hover:bg-primary-dark transition-all"
@@ -125,7 +125,7 @@ export default function Home() {
               <i className="fa fa-industry"></i> Dooke Works
             </a>
             <a
-              href="http://dookeconsulting.com"
+              href="https://dooke-consulting.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-primary/30 text-primary px-6 py-3 rounded-xl hover:bg-primary/10 transition-all"
@@ -187,7 +187,7 @@ export default function Home() {
             <span className="text-primary/80 text-xs font-semibold uppercase tracking-[0.3em]">Division technique</span>
             <h2 className="text-3xl md:text-4xl font-black text-white mt-3">Dooke Works</h2>
             <p className="text-white/40 mt-3 max-w-2xl mx-auto">
-              Activités techniques et industrielles — BTP, Industrie, Télécoms, Sécurité
+              Activités techniques et industrielles  BTP, Industrie, Télécoms, Sécurité
             </p>
             <div className="w-16 h-1 bg-primary mx-auto mt-5" />
           </div>
@@ -211,7 +211,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <a
-              href="http://dookeworks.com"
+              href="https://dooke-works.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-dark font-bold px-6 py-3 rounded-xl hover:bg-primary-dark transition-all"
@@ -254,7 +254,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <a
-              href="http://dookeconsulting.com"
+              href="https://dooke-consulting.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-primary/30 text-primary px-6 py-3 rounded-xl hover:bg-primary/10 transition-all"
