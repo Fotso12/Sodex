@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    name: Lint — ${{ matrix.project.name }}
+    name: Lint ${{ matrix.project.name }}
     strategy:
       fail-fast: false
       matrix:
@@ -42,7 +42,7 @@ jobs:
         run: npm run lint
 
   security:
-    name: Security — ${{ matrix.project.name }}
+    name: Security ${{ matrix.project.name }}
     strategy:
       fail-fast: false
       matrix:
@@ -73,7 +73,7 @@ jobs:
         continue-on-error: true
 
   deploy:
-    name: Deploy — ${{ matrix.project.name }}
+    name: Deploy ${{ matrix.project.name }}
     needs: [lint, security]
     strategy:
       fail-fast: false
@@ -81,7 +81,7 @@ jobs:
         project:
           - name: Sodex
             dir: sodex
-            secret: VERCEL_PROJECT_ID
+            secret: VERCEL_PROJECT_ID_SODEX
           - name: Dooke Corporation
             dir: dooke-corporation
             secret: VERCEL_PROJECT_ID_CORPORATION
