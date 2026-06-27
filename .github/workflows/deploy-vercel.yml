@@ -12,7 +12,7 @@ jobs:
         project:
           - name: Sodex
             dir: sodex
-            secret: VERCEL_PROJECT_ID_SODEX
+            secret: VERCEL_PROJECT_ID
           - name: Dooke Corporation
             dir: dooke-corporation
             secret: VERCEL_PROJECT_ID_CORPORATION
@@ -24,9 +24,6 @@ jobs:
             secret: VERCEL_PROJECT_ID_CONSULTING
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ matrix.project.dir }}
 
     steps:
       - name: Checkout
@@ -41,24 +38,25 @@ jobs:
 
       - name: Installation des dépendances
         run: npm ci
+        working-directory: ${{ matrix.project.dir }}
 
       - name: Installation de Vercel CLI
         run: npm install -g vercel@latest
 
       - name: Récupération de la config Vercel
-        run: vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --cwd ${{ matrix.project.dir }} --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
 
       - name: Build avec Vercel
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --cwd ${{ matrix.project.dir }} --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
 
       - name: Déploiement
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --cwd ${{ matrix.project.dir }} --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
