@@ -2,7 +2,11 @@ import Link from 'next/link';
 import { company, navLinks } from '@/data/content';
 
 export default function Footer() {
-  const allLinks = navLinks.flatMap((l) => ('dropdown' in l ? [...l.dropdown] : [l]));
+  const allLinks = navLinks.reduce<{ label: string; href: string }[]>((acc, l) => {
+    if ('dropdown' in l && l.dropdown) return [...acc, ...l.dropdown];
+    if ('href' in l) return [...acc, l];
+    return acc;
+  }, []);
 
   return (
     <footer className="bg-dark text-white/80 pt-16 border-t border-white/10">
