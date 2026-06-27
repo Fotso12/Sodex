@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <div className="flex items-start gap-3 text-sm">
                 <i className="fa fa-map-marker text-primary mt-1 w-4 text-center"></i>
-                <span className="text-white/70">Abidjan, Côte d'Ivoire</span>
+                <span className="text-white/70">Abidjan, Côte d&apos;Ivoire</span>
               </div>
               {company.phones.slice(0, 1).map((p) => (
                 <div key={p.country} className="flex items-start gap-3 text-sm">

@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <div className="flex items-start gap-3 text-sm">
                 <i className="fa fa-map-marker text-primary mt-1 w-4 text-center"></i>
-                <span className="text-white/70">Abidjan, Côte d'Ivoire</span>
+                <span className="text-white/70">Abidjan, Côte d&apos;Ivoire</span>
               </div>
               {company.phones.slice(0, 1).map((p) => (
                 <div key={p.country} className="flex items-start gap-3 text-sm">
@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="py-6 flex flex-col md:flex-row justify-between items-center text-white/50 text-sm gap-4">
           <p>Copyright &copy; {new Date().getFullYear()} DOOKE CORPORATION. Tous droits réservés.</p>
           <p className="flex items-center gap-2">
-            <i className="fa fa-shield"></i> Site conçu pour l'excellence et l'innovation.
+            <i className="fa fa-shield"></i> Site conçu pour l&apos;excellence et l&apos;innovation.
           </p>
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function ContactPage() {
                 <i className="fa fa-map-marker text-primary text-xl mt-1 w-6 text-center"></i>
                 <div>
                   <h4 className="text-dark font-bold text-sm mb-1">Adresse</h4>
-                  <p className="text-gray-500 text-sm">Dooke Works<br/>Abidjan, Côte d'Ivoire</p>
+                  <p className="text-gray-500 text-sm">Dooke Works<br/>Abidjan, Côte d&apos;Ivoire</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 bg-white p-5 rounded-2xl shadow-md hover:-translate-y-1 transition-transform">
