@@ -3,9 +3,88 @@ name: Déploiement Monorepo
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
+  lint:
+    name: Lint — ${{ matrix.project.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - name: Sodex
+            dir: sodex
+          - name: Dooke Corporation
+            dir: dooke-corporation
+          - name: Dooke Works
+            dir: dooke-works
+          - name: Dooke Consulting
+            dir: dooke-consulting
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: ${{ matrix.project.dir }}/package-lock.json
+
+      - name: Installation des dépendances
+        working-directory: ${{ matrix.project.dir }}
+        run: npm ci
+
+      - name: Lint
+        working-directory: ${{ matrix.project.dir }}
+        run: npm run lint
+
+  security:
+    name: Security — ${{ matrix.project.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - name: Sodex
+            dir: sodex
+          - name: Dooke Corporation
+            dir: dooke-corporation
+          - name: Dooke Works
+            dir: dooke-works
+          - name: Dooke Consulting
+            dir: dooke-consulting
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: ${{ matrix.project.dir }}/package-lock.json
+
+      - name: Scan des dépendances (npm audit)
+        working-directory: ${{ matrix.project.dir }}
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Scan de sécurité (CodeQL)
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+          source-root: ${{ matrix.project.dir }}
+
+      - name: Analyse CodeQL
+        uses: github/codeql-action/analyze@v3
+
   deploy:
+    name: Deploy — ${{ matrix.project.name }}
+    needs: [lint, security]
     strategy:
       fail-fast: false
       matrix:
@@ -26,11 +105,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
