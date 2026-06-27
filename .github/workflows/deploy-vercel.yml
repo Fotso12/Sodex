@@ -37,26 +37,26 @@ jobs:
           cache-dependency-path: ${{ matrix.project.dir }}/package-lock.json
 
       - name: Installation des dépendances
-        run: npm ci
         working-directory: ${{ matrix.project.dir }}
+        run: npm ci
 
       - name: Installation de Vercel CLI
         run: npm install -g vercel@latest
 
       - name: Récupération de la config Vercel
-        run: vercel pull --cwd ${{ matrix.project.dir }} --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
 
       - name: Build avec Vercel
-        run: vercel build --cwd ${{ matrix.project.dir }} --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
 
       - name: Déploiement
-        run: vercel deploy --cwd ${{ matrix.project.dir }} --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets[matrix.project.secret] }}
